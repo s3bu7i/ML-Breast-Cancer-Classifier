@@ -30,10 +30,10 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
 # Initialize and train the models
-logreg = LogisticRegression()
+logreg = LogisticRegression(random_state=42)
 logreg.fit(X_train_scaled, y_train)
 
-tree = DecisionTreeClassifier(max_depth=4, random_state=42)
+tree = DecisionTreeClassifier(max_depth=4, random_state=42, ccp_alpha=0.01)
 tree.fit(X_train_scaled, y_train)
 
 # ROC Curve for Logistic Regression
