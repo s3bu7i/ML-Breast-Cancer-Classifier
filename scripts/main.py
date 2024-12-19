@@ -16,7 +16,7 @@ y = df["diagnosis"]
 
 # Kateqorial hədəf dəyişənini şifrələyirik
 encoder = LabelEncoder()
-y = encoder.fit_transform(y)  # M=1, B=0
+y = encoder.fit_transform(y)
 
 # Məlumatı train/test olaraq bölürük
 X_train, X_test, y_train, y_test = train_test_split(

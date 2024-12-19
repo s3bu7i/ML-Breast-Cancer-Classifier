@@ -1,15 +1,23 @@
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
 import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
+from sklearn.preprocessing import LabelEncoder
 
-data_path = "data/data.csv"
-df = pd.read_csv(data_path)
+# Load the dataset
+file_path = 'data/data.csv'
+data = pd.read_csv(file_path)
 
-df = df.drop(columns=["id"])
-df["diagnosis"] = df["diagnosis"].map({"M": 1, "B": 0})
-scaler = StandardScaler()
-numeric_columns = df.select_dtypes(include=["float64", "int64"]).columns
-df[numeric_columns] = scaler.fit_transform(df[numeric_columns])
-X = df.drop(columns=["diagnosis"])
-y = df["diagnosis"]
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Drop the 'id' column (since it's not a useful feature)
+data = data.drop('id', axis=1)
+
+# Convert the 'diagnosis' column to numeric using LabelEncoder (B = 0, M = 1)
+label_encoder = LabelEncoder()
+data['diagnosis'] = label_encoder.fit_transform(data['diagnosis'])
+
+# Split features and target
+X = data.iloc[:, 1:]  # Features (all columns except 'diagnosis')
+y = data['diagnosis']  # Target (the 'diagnosis' column)
+
+# Split the dataset
