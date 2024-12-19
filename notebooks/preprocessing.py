@@ -7,7 +7,6 @@ import numpy as np
 data_path = "data/data.csv"
 data = pd.read_csv(data_path)
 # Display basic info and statistics
-import numpy as np
 
 # Display basic info and statistics
 data.info()
@@ -21,7 +20,6 @@ print("Missing values per column:\n", missing_values)
 data.fillna(data.median(), inplace=True)
 
 # Encode categorical variables if needed
-from sklearn.preprocessing import LabelEncoder
 
 label_encoders = {}
 for col in data.select_dtypes(include=['object']).columns:
@@ -34,7 +32,6 @@ X = data.drop(columns=["diagnosis"], axis=1)
 y = data["diagnosis"]
 
 # Standardize features
-from sklearn.preprocessing import StandardScaler
 
 scaler = StandardScaler()
 X = scaler.fit_transform(X)
