@@ -16,14 +16,14 @@ y = df["diagnosis"]
 
 # Kateqorial hədəf dəyişənini şifrələyirik
 encoder = LabelEncoder()
-y = encoder.fit_transform(y)
+y = encoder.fit_transform(y)  # M=1, B=0
 
 # Məlumatı train/test olaraq bölürük
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42)
 
 # Model qururuq
-tree = DecisionTreeClassifier(max_depth=4, random_state=42, ccp_alpha=0.01)
+tree = DecisionTreeClassifier(max_depth=4, random_state=42)
 tree.fit(X_train, y_train)
 
 # Təxminlər
