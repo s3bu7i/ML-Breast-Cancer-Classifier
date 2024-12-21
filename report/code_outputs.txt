@@ -1,0 +1,572 @@
+algoritm.py
+Logistic Regression Accuracy: 0.9737
+Decision Tree Accuracy: 0.9474
+
+Logistic Regression Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.97      0.99      0.98        71
+           1       0.98      0.95      0.96        43
+
+    accuracy                           0.97       114
+   macro avg       0.97      0.97      0.97       114
+weighted avg       0.97      0.97      0.97       114
+
+
+Decision Tree Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.96      0.96      0.96        71
+           1       0.93      0.93      0.93        43
+
+    accuracy                           0.95       114
+   macro avg       0.94      0.94      0.94       114
+weighted avg       0.95      0.95      0.95       114
+
+
+emptyfield.py
+Missing values before filling:
+id                         0
+diagnosis                  0
+radius_mean                0
+texture_mean               0
+perimeter_mean             0
+area_mean                  0
+smoothness_mean            0
+compactness_mean           0
+concavity_mean             0
+concave_points_mean        0
+symmetry_mean              0
+fractal_dimension_mean     0
+radius_se                  0
+texture_se                 0
+perimeter_se               0
+area_se                    0
+smoothness_se              0
+compactness_se             0
+concavity_se               0
+concave_points_se          0
+symmetry_se                0
+fractal_dimension_se       0
+radius_worst               0
+texture_worst              0
+perimeter_worst            0
+area_worst                 0
+smoothness_worst           0
+compactness_worst          0
+concavity_worst            0
+concave_points_worst       0
+symmetry_worst             0
+fractal_dimension_worst    0
+dtype: int64
+
+Missing values after filling:
+id                         0
+diagnosis                  0
+radius_mean                0
+texture_mean               0
+perimeter_mean             0
+area_mean                  0
+smoothness_mean            0
+compactness_mean           0
+concavity_mean             0
+concave_points_mean        0
+symmetry_mean              0
+fractal_dimension_mean     0
+radius_se                  0
+texture_se                 0
+perimeter_se               0
+area_se                    0
+smoothness_se              0
+compactness_se             0
+concavity_se               0
+concave_points_se          0
+symmetry_se                0
+fractal_dimension_se       0
+radius_worst               0
+texture_worst              0
+perimeter_worst            0
+area_worst                 0
+smoothness_worst           0
+compactness_worst          0
+concavity_worst            0
+concave_points_worst       0
+symmetry_worst             0
+fractal_dimension_worst    0
+dtype: int64
+
+Updated dataset info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 569 entries, 0 to 568
+Data columns (total 32 columns):
+ #   Column                   Non-Null Count  Dtype
+---  ------                   --------------  -----
+ 0   id                       569 non-null    int64
+ 1   diagnosis                569 non-null    object
+ 2   radius_mean              569 non-null    float64
+ 3   texture_mean             569 non-null    float64
+ 4   perimeter_mean           569 non-null    float64
+ 5   area_mean                569 non-null    float64
+ 6   smoothness_mean          569 non-null    float64
+ 7   compactness_mean         569 non-null    float64
+ 8   concavity_mean           569 non-null    float64
+ 9   concave_points_mean      569 non-null    float64
+ 10  symmetry_mean            569 non-null    float64
+ 11  fractal_dimension_mean   569 non-null    float64
+ 12  radius_se                569 non-null    float64
+ 13  texture_se               569 non-null    float64
+ 14  perimeter_se             569 non-null    float64
+ 15  area_se                  569 non-null    float64
+ 16  smoothness_se            569 non-null    float64
+ 17  compactness_se           569 non-null    float64
+ 18  concavity_se             569 non-null    float64
+ 19  concave_points_se        569 non-null    float64
+ 20  symmetry_se              569 non-null    float64
+ 21  fractal_dimension_se     569 non-null    float64
+ 22  radius_worst             569 non-null    float64
+ 23  texture_worst            569 non-null    float64
+ 24  perimeter_worst          569 non-null    float64
+ 25  area_worst               569 non-null    float64
+ 26  smoothness_worst         569 non-null    float64
+ 27  compactness_worst        569 non-null    float64
+ 28  concavity_worst          569 non-null    float64
+ 29  concave_points_worst     569 non-null    float64
+ 30  symmetry_worst           569 non-null    float64
+ 31  fractal_dimension_worst  569 non-null    float64
+dtypes: float64(30), int64(1), object(1)
+memory usage: 142.4+ KB
+None
+
+
+loadataset.py
+Dataset successfully loaded.
+Dataset preview:
+         id diagnosis  radius_mean  texture_mean  ...  concavity_worst  concave_points_worst  symmetry_worst  fractal_dimension_worst
+0    842302         M        17.99         10.38  ...           0.7119                0.2654          0.4601                  0.11890
+1    842517         M        20.57         17.77  ...           0.2416                0.1860          0.2750                  0.08902
+2  84300903         M        19.69         21.25  ...           0.4504                0.2430          0.3613                  0.08758
+3  84348301         M        11.42         20.38  ...           0.6869                0.2575          0.6638                  0.17300
+4  84358402         M        20.29         14.34  ...           0.4000                0.1625          0.2364                  0.07678
+
+[5 rows x 32 columns]
+
+Dataset info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 569 entries, 0 to 568
+Data columns (total 32 columns):
+ #   Column                   Non-Null Count  Dtype
+---  ------                   --------------  -----
+ 0   id                       569 non-null    int64
+ 1   diagnosis                569 non-null    object
+ 2   radius_mean              569 non-null    float64
+ 3   texture_mean             569 non-null    float64
+ 4   perimeter_mean           569 non-null    float64
+ 5   area_mean                569 non-null    float64
+ 6   smoothness_mean          569 non-null    float64
+ 7   compactness_mean         569 non-null    float64
+ 8   concavity_mean           569 non-null    float64
+ 9   concave_points_mean      569 non-null    float64
+ 10  symmetry_mean            569 non-null    float64
+ 11  fractal_dimension_mean   569 non-null    float64
+ 12  radius_se                569 non-null    float64
+ 13  texture_se               569 non-null    float64
+ 14  perimeter_se             569 non-null    float64
+ 15  area_se                  569 non-null    float64
+ 16  smoothness_se            569 non-null    float64
+ 17  compactness_se           569 non-null    float64
+ 18  concavity_se             569 non-null    float64
+ 19  concave_points_se        569 non-null    float64
+ 20  symmetry_se              569 non-null    float64
+ 21  fractal_dimension_se     569 non-null    float64
+ 22  radius_worst             569 non-null    float64
+ 23  texture_worst            569 non-null    float64
+ 24  perimeter_worst          569 non-null    float64
+ 25  area_worst               569 non-null    float64
+ 26  smoothness_worst         569 non-null    float64
+ 27  compactness_worst        569 non-null    float64
+ 28  concavity_worst          569 non-null    float64
+ 29  concave_points_worst     569 non-null    float64
+ 30  symmetry_worst           569 non-null    float64
+ 31  fractal_dimension_worst  569 non-null    float64
+dtypes: float64(30), int64(1), object(1)
+memory usage: 142.4+ KB
+None
+
+
+preprocessing.py
+Processed Features (X):
+[[ 1.09706398e+00 -2.07333501e+00  1.26993369e+00  9.84374905e-01
+   1.56846633e+00  3.28351467e+00  2.65287398e+00  2.53247522e+00
+   2.21751501e+00  2.25574689e+00  2.48973393e+00 -5.65265059e-01
+   2.83303087e+00  2.48757756e+00 -2.14001647e-01  1.31686157e+00
+   7.24026158e-01  6.60819941e-01  1.14875667e+00  9.07083081e-01
+   1.88668963e+00 -1.35929347e+00  2.30360062e+00  2.00123749e+00
+   1.30768627e+00  2.61666502e+00  2.10952635e+00  2.29607613e+00
+   2.75062224e+00  1.93701461e+00]
+ [ 1.82982061e+00 -3.53632408e-01  1.68595471e+00  1.90870825e+00
+  -8.26962447e-01 -4.87071673e-01 -2.38458552e-02  5.48144156e-01
+   1.39236330e-03 -8.68652457e-01  4.99254601e-01 -8.76243603e-01
+   2.63326966e-01  7.42401948e-01 -6.05350847e-01 -6.92926270e-01
+  -4.40780058e-01  2.60162067e-01 -8.05450380e-01 -9.94437403e-02
+   1.80592744e+00 -3.69203222e-01  1.53512599e+00  1.89048899e+00
+  -3.75611957e-01 -4.30444219e-01 -1.46748968e-01  1.08708430e+00
+  -2.43889668e-01  2.81189987e-01]
+ [ 1.57988811e+00  4.56186952e-01  1.56650313e+00  1.55888363e+00
+   9.42210440e-01  1.05292554e+00  1.36347845e+00  2.03723076e+00
+   9.39684817e-01 -3.98007910e-01  1.22867595e+00 -7.80083377e-01
+   8.50928301e-01  1.18133606e+00 -2.97005012e-01  8.14973504e-01
+   2.13076435e-01  1.42482747e+00  2.37035535e-01  2.93559404e-01
+   1.51187025e+00 -2.39743838e-02  1.34747521e+00  1.45628455e+00
+   5.27407405e-01  1.08293217e+00  8.54973944e-01  1.95500035e+00
+   1.15225500e+00  2.01391209e-01]
+ [-7.68909287e-01  2.53732112e-01 -5.92687167e-01 -7.64463792e-01
+   3.28355348e+00  3.40290899e+00  1.91589718e+00  1.45170736e+00
+   2.86738293e+00  4.91091929e+00  3.26373441e-01 -1.10409044e-01
+   2.86593405e-01 -2.88378148e-01  6.89701660e-01  2.74428041e+00
+   8.19518384e-01  1.11500701e+00  4.73268037e+00  2.04751088e+00
+  -2.81464464e-01  1.33984094e-01 -2.49939304e-01 -5.50021228e-01
+   3.39427470e+00  3.89339743e+00  1.98958826e+00  2.17578601e+00
+   6.04604135e+00  4.93501034e+00]
+ [ 1.75029663e+00 -1.15181643e+00  1.77657315e+00  1.82622928e+00
+   2.80371830e-01  5.39340452e-01  1.37101143e+00  1.42849277e+00
+  -9.56046689e-03 -5.62449981e-01  1.27054278e+00 -7.90243702e-01
+   1.27318941e+00  1.19035676e+00  1.48306716e+00 -4.85198799e-02
+   8.28470780e-01  1.14420474e+00 -3.61092272e-01  4.99328134e-01
+   1.29857524e+00 -1.46677038e+00  1.33853946e+00  1.22072425e+00
+   2.20556166e-01 -3.13394511e-01  6.13178758e-01  7.29259257e-01
+  -8.68352984e-01 -3.97099619e-01]]
+
+Processed Target (y):
+0    1
+1    1
+2    1
+3    1
+4    1
+Name: diagnosis, dtype: int64
+
+
+scaling.py
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 569 entries, 0 to 568
+Data columns (total 32 columns):
+ #   Column                   Non-Null Count  Dtype
+---  ------                   --------------  -----
+ 0   id                       569 non-null    int64
+ 1   diagnosis                569 non-null    object
+ 2   radius_mean              569 non-null    float64
+ 3   texture_mean             569 non-null    float64
+ 4   perimeter_mean           569 non-null    float64
+ 5   area_mean                569 non-null    float64
+ 6   smoothness_mean          569 non-null    float64
+ 7   compactness_mean         569 non-null    float64
+ 8   concavity_mean           569 non-null    float64
+ 9   concave_points_mean      569 non-null    float64
+ 10  symmetry_mean            569 non-null    float64
+ 11  fractal_dimension_mean   569 non-null    float64
+ 12  radius_se                569 non-null    float64
+ 13  texture_se               569 non-null    float64
+ 14  perimeter_se             569 non-null    float64
+ 15  area_se                  569 non-null    float64
+ 16  smoothness_se            569 non-null    float64
+ 17  compactness_se           569 non-null    float64
+ 18  concavity_se             569 non-null    float64
+ 19  concave_points_se        569 non-null    float64
+ 20  symmetry_se              569 non-null    float64
+ 21  fractal_dimension_se     569 non-null    float64
+ 22  radius_worst             569 non-null    float64
+ 23  texture_worst            569 non-null    float64
+ 24  perimeter_worst          569 non-null    float64
+ 25  area_worst               569 non-null    float64
+ 26  smoothness_worst         569 non-null    float64
+ 27  compactness_worst        569 non-null    float64
+ 28  concavity_worst          569 non-null    float64
+ 29  concave_points_worst     569 non-null    float64
+ 30  symmetry_worst           569 non-null    float64
+ 31  fractal_dimension_worst  569 non-null    float64
+dtypes: float64(30), int64(1), object(1)
+memory usage: 142.4+ KB
+         id diagnosis  radius_mean  texture_mean  ...  concavity_worst  concave_points_worst  symmetry_worst  fractal_dimension_worst
+0    842302         M        17.99         10.38  ...           0.7119                0.2654          0.4601                  0.11890
+1    842517         M        20.57         17.77  ...           0.2416                0.1860          0.2750                  0.08902
+2  84300903         M        19.69         21.25  ...           0.4504                0.2430          0.3613                  0.08758
+3  84348301         M        11.42         20.38  ...           0.6869                0.2575          0.6638                  0.17300
+4  84358402         M        20.29         14.34  ...           0.4000                0.1625          0.2364                  0.07678
+
+[5 rows x 32 columns]
+None
+id                         0
+diagnosis                  0
+radius_mean                0
+texture_mean               0
+perimeter_mean             0
+area_mean                  0
+smoothness_mean            0
+compactness_mean           0
+concavity_mean             0
+concave_points_mean        0
+symmetry_mean              0
+fractal_dimension_mean     0
+radius_se                  0
+texture_se                 0
+perimeter_se               0
+area_se                    0
+smoothness_se              0
+compactness_se             0
+concavity_se               0
+concave_points_se          0
+symmetry_se                0
+fractal_dimension_se       0
+radius_worst               0
+texture_worst              0
+perimeter_worst            0
+area_worst                 0
+smoothness_worst           0
+compactness_worst          0
+concavity_worst            0
+concave_points_worst       0
+symmetry_worst             0
+fractal_dimension_worst    0
+dtype: int64
+
+
+
+count.py
+Index(['id', 'diagnosis', 'radius_mean', 'texture_mean', 'perimeter_mean',
+       'area_mean', 'smoothness_mean', 'compactness_mean', 'concavity_mean',
+       'concave_points_mean', 'symmetry_mean', 'fractal_dimension_mean',
+       'radius_se', 'texture_se', 'perimeter_se', 'area_se', 'smoothness_se',
+       'compactness_se', 'concavity_se', 'concave_points_se', 'symmetry_se',
+       'fractal_dimension_se', 'radius_worst', 'texture_worst',
+       'perimeter_worst', 'area_worst', 'smoothness_worst',
+       'compactness_worst', 'concavity_worst', 'concave_points_worst',
+       'symmetry_worst', 'fractal_dimension_worst'],
+      dtype='object')
+
+
+all.py
+Dataset Preview:
+         id diagnosis  radius_mean  texture_mean  ...  concavity_worst  concave_points_worst  symmetry_worst  fractal_dimension_worst
+0    842302         M        17.99         10.38  ...           0.7119                0.2654          0.4601                  0.11890
+1    842517         M        20.57         17.77  ...           0.2416                0.1860          0.2750                  0.08902
+2  84300903         M        19.69         21.25  ...           0.4504                0.2430          0.3613                  0.08758
+3  84348301         M        11.42         20.38  ...           0.6869                0.2575          0.6638                  0.17300
+4  84358402         M        20.29         14.34  ...           0.4000                0.1625          0.2364                  0.07678
+
+[5 rows x 32 columns]
+
+Best Logistic Regression Hyperparameters: {'C': 0.1, 'solver': 'newton-cg'}
+
+Logistic Regression Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.99      0.99      0.99        69
+           1       0.99      0.99      0.99        74
+
+    accuracy                           0.99       143
+   macro avg       0.99      0.99      0.99       143
+weighted avg       0.99      0.99      0.99       143
+
+Logistic Regression ROC AUC: 0.9859968664316491
+
+Best Decision Tree Hyperparameters: {'ccp_alpha': 0.01, 'max_depth': 5, 'min_samples_split': 2}
+
+Decision Tree Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.96      0.97      0.96        69
+           1       0.97      0.96      0.97        74
+
+    accuracy                           0.97       143
+   macro avg       0.96      0.97      0.97       143
+weighted avg       0.97      0.97      0.97       143
+
+Decision Tree ROC AUC: 0.9652369761065414
+
+Cross-Validation Accuracy Scores:
+Logistic Regression: [0.98601399 0.96503497 0.97902098 0.97902098 0.97887324]
+Decision Tree: [0.91608392 0.95804196 0.97902098 0.93706294 0.93661972]
+
+
+
+boost.py
+Unique values in target y: [1 0]
+Fitting 5 folds for each of 90 candidates, totalling 450 fits
+Best Parameters from Grid Search: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 10}
+Best Cross-Validation Score: 0.9428571428571428
+Confusion Matrix:
+ [[70  1]
+ [ 5 38]]
+Accuracy: 0.9473684210526315
+Classification Report:
+               precision    recall  f1-score   support
+
+           0       0.93      0.99      0.96        71
+           1       0.97      0.88      0.93        43
+
+    accuracy                           0.95       114
+   macro avg       0.95      0.93      0.94       114
+weighted avg       0.95      0.95      0.95       114
+
+
+
+hyperparameter.py
+Best Logistic Regression Hyperparameters: {'C': 0.1, 'solver': 'liblinear'}
+Best Decision Tree Hyperparameters: {'ccp_alpha': 0.01, 'max_depth': 3, 'min_samples_split': 10}
+
+Logistic Regression Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.99      1.00      0.99        71
+           1       1.00      0.98      0.99        43
+
+    accuracy                           0.99       114
+   macro avg       0.99      0.99      0.99       114
+weighted avg       0.99      0.99      0.99       114
+
+
+Decision Tree Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.95      0.97      0.96        71
+           1       0.95      0.91      0.93        43
+
+    accuracy                           0.95       114
+   macro avg       0.95      0.94      0.94       114
+weighted avg       0.95      0.95      0.95       114
+
+
+
+k-fold_cross-validation.py
+Random Forest Results:
+               precision    recall  f1-score   support
+
+           0       0.97      0.99      0.98       108
+           1       0.98      0.95      0.97        63
+
+    accuracy                           0.98       171
+   macro avg       0.98      0.97      0.97       171
+weighted avg       0.98      0.98      0.98       171
+
+Cross-Validation Accuracy Scores: [0.92982456 0.93859649 0.98245614 0.96491228 0.97345133]
+Mean CV Accuracy: 0.9578481602235678
+
+
+
+decision_tree.py
+Classification Report for Decision Tree:
+              precision    recall  f1-score   support
+
+           0       0.96      0.96      0.96        71
+           1       0.93      0.93      0.93        43
+
+    accuracy                           0.95       114
+   macro avg       0.94      0.94      0.94       114
+weighted avg       0.95      0.95      0.95       114
+
+
+ROC AUC Score: 0.9439895185063871
+
+
+
+logistic_req.py
+Logistic Regression Classification Report:
+               precision    recall  f1-score   support
+
+           B       0.95      0.99      0.97        71
+           M       0.97      0.91      0.94        43
+
+    accuracy                           0.96       114
+   macro avg       0.96      0.95      0.95       114
+weighted avg       0.96      0.96      0.96       114
+
+
+
+Pipeline_Creation.py
+Pipeline Results:
+               precision    recall  f1-score   support
+
+           0       0.97      0.99      0.98       108 
+           1       0.98      0.95      0.97        63 
+
+    accuracy                           0.98       171 
+   macro avg       0.98      0.97      0.97       171 
+weighted avg       0.98      0.98      0.98       171 
+
+
+
+RFE&mutual_info.py
+Selected Features with RFE: Index(['perimeter_mean', 'area_mean', 'concavity_mean', 'concave_points_mean',
+       'radius_worst', 'texture_worst', 'perimeter_worst', 'area_worst',
+       'concavity_worst', 'concave_points_worst'],
+      dtype='object')
+Mutual Information Scores:
+ perimeter_worst            0.476204
+area_worst                 0.464313
+radius_worst               0.453603
+concave_points_mean        0.443156
+concave_points_worst       0.435695
+perimeter_mean             0.404996
+concavity_mean             0.375004
+radius_mean                0.366700
+area_mean                  0.361055
+area_se                    0.338799
+concavity_worst            0.314820
+perimeter_se               0.274898
+radius_se                  0.249075
+compactness_worst          0.224944
+compactness_mean           0.213717
+concave_points_se          0.127357
+texture_worst              0.120511
+concavity_se               0.117670
+smoothness_worst           0.108501
+id                         0.106522
+texture_mean               0.102304
+symmetry_worst             0.091556
+smoothness_mean            0.081631
+compactness_se             0.075111
+fractal_dimension_worst    0.068369
+symmetry_mean              0.062538
+fractal_dimension_se       0.039135
+smoothness_se              0.013326
+symmetry_se                0.010519
+fractal_dimension_mean     0.003054
+texture_se                 0.000413
+dtype: float64
+
+
+
+SMOTE&class_weighting.py
+Random Forest with SMOTE Results:
+               precision    recall  f1-score   support
+
+           0       0.98      0.99      0.99       108
+           1       0.98      0.97      0.98        63
+
+    accuracy                           0.98       171
+   macro avg       0.98      0.98      0.98       171
+weighted avg       0.98      0.98      0.98       171
+
+
+
+XGBoost&LightGBM&NN.py
+Best LightGBM Parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.1, 'min_child_samples': 20, 'min_split_gain': 0.001, 'n_estimators': 200, 'num_leaves': 20, 
+'subsample': 0.8}
+LightGBM Results:
+               precision    recall  f1-score   support
+
+           0       0.97      0.98      0.98       108
+           1       0.97      0.95      0.96        63
+
+    accuracy                           0.97       171
+   macro avg       0.97      0.97      0.97       171
+weighted avg       0.97      0.97      0.97       171
+
+Neural Network Results:
+               precision    recall  f1-score   support
+
+           0       0.98      0.98      0.98       108
+           1       0.97      0.97      0.97        63
+
+    accuracy                           0.98       171
+   macro avg       0.97      0.97      0.97       171
+weighted avg       0.98      0.98      0.98       171
