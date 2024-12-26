@@ -6,7 +6,6 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import (
     classification_report,
     ConfusionMatrixDisplay,
-    roc_auc_score,
     roc_curve,
     auc,
 )
