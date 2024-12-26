@@ -1,0 +1,73 @@
+2024-12-26 22:25:13,742 - INFO - Missing values before filling:
+2024-12-26 22:25:13,743 - INFO - id                         0
+diagnosis                  0
+radius_mean                0
+texture_mean               0
+perimeter_mean             0
+area_mean                  0
+smoothness_mean            0
+compactness_mean           0
+concavity_mean             0
+concave_points_mean        0
+symmetry_mean              0
+fractal_dimension_mean     0
+radius_se                  0
+texture_se                 0
+perimeter_se               0
+area_se                    0
+smoothness_se              0
+compactness_se             0
+concavity_se               0
+concave_points_se          0
+symmetry_se                0
+fractal_dimension_se       0
+radius_worst               0
+texture_worst              0
+perimeter_worst            0
+area_worst                 0
+smoothness_worst           0
+compactness_worst          0
+concavity_worst            0
+concave_points_worst       0
+symmetry_worst             0
+fractal_dimension_worst    0
+dtype: int64
+2024-12-26 22:25:13,756 - INFO - 
+Missing values after filling:
+2024-12-26 22:25:13,757 - INFO - id                         0
+diagnosis                  0
+radius_mean                0
+texture_mean               0
+perimeter_mean             0
+area_mean                  0
+smoothness_mean            0
+compactness_mean           0
+concavity_mean             0
+concave_points_mean        0
+symmetry_mean              0
+fractal_dimension_mean     0
+radius_se                  0
+texture_se                 0
+perimeter_se               0
+area_se                    0
+smoothness_se              0
+compactness_se             0
+concavity_se               0
+concave_points_se          0
+symmetry_se                0
+fractal_dimension_se       0
+radius_worst               0
+texture_worst              0
+perimeter_worst            0
+area_worst                 0
+smoothness_worst           0
+compactness_worst          0
+concavity_worst            0
+concave_points_worst       0
+symmetry_worst             0
+fractal_dimension_worst    0
+dtype: int64
+2024-12-26 22:25:13,760 - INFO - 
+Updated dataset info:
+2024-12-26 22:25:13,768 - INFO - None
+2024-12-26 22:25:13,792 - INFO - Processed dataset saved to data/processed_data.csv
