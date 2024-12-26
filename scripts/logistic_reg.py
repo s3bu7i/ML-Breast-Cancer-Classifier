@@ -16,20 +16,29 @@ y = data["diagnosis"]
 
 # Split data
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42)
+    X, y, test_size=0.2, random_state=42
+)
 
 # Logistic Regression
 lr_model = LogisticRegression(random_state=42, max_iter=1000)
 lr_model.fit(X_train, y_train)
 y_pred_lr = lr_model.predict(X_test)
 
-print("Logistic Regression Classification Report:\n",
-      classification_report(y_test, y_pred_lr))
+print(
+    "Logistic Regression Classification Report:\n",
+    classification_report(y_test, y_pred_lr),
+)
 
 
 # Confusion Matrix for Logistic Regression
 cm_lr = confusion_matrix(y_test, y_pred_lr)
-sns.heatmap(cm_lr, annot=True, fmt="d", cmap="Blues", xticklabels=[
-            "Predicted Negative", "Predicted Positive"], yticklabels=["Actual Negative", "Actual Positive"])
+sns.heatmap(
+    cm_lr,
+    annot=True,
+    fmt="d",
+    cmap="Blues",
+    xticklabels=["Predicted Negative", "Predicted Positive"],
+    yticklabels=["Actual Negative", "Actual Positive"],
+)
 plt.title("Logistic Regression Confusion Matrix")
 plt.show()

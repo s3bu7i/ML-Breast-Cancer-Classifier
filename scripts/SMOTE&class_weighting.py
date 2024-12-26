@@ -40,8 +40,7 @@ rf.fit(X_resampled, y_resampled)
 y_pred_rf = rf.predict(X_test)
 
 # Print classification report
-print("Random Forest with SMOTE Results:\n",
-      classification_report(y_test, y_pred_rf))
+print("Random Forest with SMOTE Results:\n", classification_report(y_test, y_pred_rf))
 
 # Display confusion matrix
 ConfusionMatrixDisplay.from_estimator(rf, X_test, y_test)

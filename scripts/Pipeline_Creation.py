@@ -26,11 +26,13 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # Create pipeline
-pipeline = Pipeline([
-    ("scaler", StandardScaler()),  # Scale the features
-    # Random Forest Classifier
-    ("classifier", RandomForestClassifier(random_state=42))
-])
+pipeline = Pipeline(
+    [
+        ("scaler", StandardScaler()),  # Scale the features
+        # Random Forest Classifier
+        ("classifier", RandomForestClassifier(random_state=42)),
+    ]
+)
 
 # Fit and evaluate the pipeline
 pipeline.fit(X_train, y_train)

@@ -6,21 +6,21 @@ from sklearn.metrics import confusion_matrix, accuracy_score, classification_rep
 from sklearn.preprocessing import LabelEncoder
 
 # Load the dataset
-file_path = 'data/data.csv'
+file_path = "data/data.csv"
 data = pd.read_csv(file_path)
 
 # Drop 'id' if it exists as it's not a useful feature
-if 'id' in data.columns:
-    data = data.drop('id', axis=1)
+if "id" in data.columns:
+    data = data.drop("id", axis=1)
 
 # Convert 'diagnosis' to numeric using LabelEncoder (B = 0, M = 1)
-if 'diagnosis' in data.columns:
+if "diagnosis" in data.columns:
     label_encoder = LabelEncoder()
-    data['diagnosis'] = label_encoder.fit_transform(data['diagnosis'])
+    data["diagnosis"] = label_encoder.fit_transform(data["diagnosis"])
 
 # Assuming 'diagnosis' is the target, ensure 'X' and 'y' are selected correctly
-X = data.drop('diagnosis', axis=1)  # Features
-y = data['diagnosis']  # Target (should now be categorical 0, 1)
+X = data.drop("diagnosis", axis=1)  # Features
+y = data["diagnosis"]  # Target (should now be categorical 0, 1)
 
 # Print unique values of 'y' to ensure it contains 0s and 1s
 print(f"Unique values in target y: {y.unique()}")
@@ -33,15 +33,16 @@ X_train, X_test, y_train, y_test = train_test_split(
 # Define the DecisionTreeClassifier and set up the hyperparameter grid
 decision_tree = DecisionTreeClassifier(random_state=42)
 param_grid = {
-    'criterion': ['gini', 'entropy'],
-    'max_depth': [5, 10, 15, 20, None],
-    'min_samples_split': [2, 5, 10],
-    'min_samples_leaf': [1, 2, 5]
+    "criterion": ["gini", "entropy"],
+    "max_depth": [5, 10, 15, 20, None],
+    "min_samples_split": [2, 5, 10],
+    "min_samples_leaf": [1, 2, 5],
 }
 
 # Use GridSearchCV to find the best hyperparameters
-grid_search = GridSearchCV(estimator=decision_tree,
-                           param_grid=param_grid, cv=5, n_jobs=-1, verbose=1)
+grid_search = GridSearchCV(
+    estimator=decision_tree, param_grid=param_grid, cv=5, n_jobs=-1, verbose=1
+)
 grid_search.fit(X_train, y_train)
 
 # Print the best parameters and the best score

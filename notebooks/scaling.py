@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load the uploaded dataset
-file_path = 'data/data.csv'
+file_path = "data/data.csv"
 df = pd.read_csv(file_path)
 
 # Display the first few rows and summary information about the dataset

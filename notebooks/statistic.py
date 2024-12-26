@@ -22,7 +22,8 @@ y = df["diagnosis"]  # Target variable
 
 # Split data into training and test sets
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42)
+    X, y, test_size=0.2, random_state=42
+)
 
 # Standardize the features
 scaler = StandardScaler()
@@ -41,8 +42,7 @@ fpr, tpr, _ = roc_curve(y_test, logreg.predict_proba(X_test_scaled)[:, 1])
 plt.plot(fpr, tpr, label="Logistic Regression")
 
 # ROC Curve for Decision Tree
-fpr_tree, tpr_tree, _ = roc_curve(
-    y_test, tree.predict_proba(X_test_scaled)[:, 1])
+fpr_tree, tpr_tree, _ = roc_curve(y_test, tree.predict_proba(X_test_scaled)[:, 1])
 plt.plot(fpr_tree, tpr_tree, label="Decision Tree")
 
 # Adding labels and title
