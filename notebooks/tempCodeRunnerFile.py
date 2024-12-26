@@ -1,1 +1,3 @@
-data_path = "data/data.csv"
+import pandas as pd
+
+data = pd.read_csv("data/data.csv")
