@@ -15,3 +15,5 @@ plt.show()
 sns.scatterplot(data=df, x="radius_mean", y="texture_mean", hue="diagnosis")
 plt.title("Radius Mean and Texture Mean Distribution")
 plt.show()
+
+
