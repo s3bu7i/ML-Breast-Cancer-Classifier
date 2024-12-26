@@ -29,7 +29,8 @@ df[numeric_columns] = df[numeric_columns].fillna(df[numeric_columns].mean())
 
 # Step 5: Handle missing values in categorical columns
 df[categorical_columns] = df[categorical_columns].fillna(
-    df[categorical_columns].mode().iloc[0])
+    df[categorical_columns].mode().iloc[0]
+)
 
 # Step 6: Check for missing values after cleaning
 logging.info("\nMissing values after filling:")
