@@ -1,22 +1,21 @@
-name: Docker Build and Test
+name: Build and Test Docker Image
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
-  docker:
-
+  docker-build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    - name: Build Docker Image
-      run: |
-        docker build -t ml-breast-cancer-classifier .
-    - name: Run Docker Container
-      run: |
-        docker run ml-breast-cancer-classifier
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: docker build -t ml-breast-cancer-classifier .
+
+      - name: Run Docker Container
+        run: docker run --rm -d -p 5000:5000 ml-breast-cancer-classifier
