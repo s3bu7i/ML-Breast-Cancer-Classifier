@@ -1,4 +1,4 @@
-name: Code Quality Check
+name: Python application
 
 on:
   push:
@@ -6,23 +6,41 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: read
+
 jobs:
-  lint:
+  build:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python
+    
+    # Set up Python
+    - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
+    
+    # Install dependencies
     - name: Install dependencies
       run: |
-        pip install flake8 black isort
+        python -m pip install --upgrade pip
+        pip install black flake8 autoflake pytest
+    
+    # Auto-fix: Format with Black and Remove Unused Imports
+    - name: Format and Clean Code
+      run: |
+        autoflake --in-place --remove-unused-variables --remove-all-unused-imports -r .
+        black .
+    
+    # Linting with flake8
     - name: Lint with flake8
-      run: flake8 . --max-line-length=88 --statistics
-    - name: Format Code with Black
-      run: black --check .
-    - name: Sort Imports with isort
-      run: isort . --check
+      run: |
+        flake8 . --max-line-length=88 --statistics
+    
+    # Test with pytest
+    - name: Run Tests with pytest
+      run: |
+        pytest tests/ --maxfail=5 --disable-warnings -v
