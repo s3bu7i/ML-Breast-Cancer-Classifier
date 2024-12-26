@@ -1,21 +1,18 @@
-# Use the official Python image as the base image
+# Use the official Python image as the base
 FROM python:3.10-slim
 
-# Set the working directory in the container
+# Set the working directory
 WORKDIR /app
 
-# Copy the requirements file into the container
+# Copy the requirements file and install dependencies
 COPY requirements.txt .
-
-# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code into the container
+# Copy the application code
 COPY . .
 
-# Expose the port your application runs on
+# Expose the application port
 EXPOSE 5000
 
-# Command to run your application
-# Replace `app.py` with your Python entry point file
+# Define the command to run the application
 CMD ["python", "app.py"]
